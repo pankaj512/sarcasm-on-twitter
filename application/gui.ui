@@ -1,0 +1,359 @@
+<?xml version='1.0' encoding='utf-8'?>
+<interface>
+  <object class="ttk.Frame" id="main_window">
+    <property name="height">200</property>
+    <property name="width">200</property>
+    <layout>
+      <property name="column">0</property>
+      <property name="propagate">True</property>
+      <property name="row">0</property>
+    </layout>
+    <child>
+      <object class="ttk.Label" id="heading">
+        <property name="background">#ff80ff</property>
+        <property name="font">{Courier New} 14 {bold}</property>
+        <property name="text" translatable="yes">Sarcasm Classifier</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="ipadx">0</property>
+          <property name="padx">200</property>
+          <property name="pady">10</property>
+          <property name="propagate">False</property>
+          <property name="row">0</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Label" id="Label_4">
+        <property name="font">{Courier New} 12 {}</property>
+        <property name="padding">10</property>
+        <property name="text" translatable="yes">Please Select Classifier:</property>
+        <property name="width">0</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="ipadx">3</property>
+          <property name="ipady">3</property>
+          <property name="propagate">True</property>
+          <property name="row">1</property>
+          <property name="sticky">w</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Label" id="Label_5">
+        <property name="font">{Courier} 12 {}</property>
+        <property name="padding">10</property>
+        <property name="text" translatable="yes">Please Select Test Size:</property>
+        <property name="textvariable">string:inut_size</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">2</property>
+          <property name="sticky">w</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Combobox" id="size_of_train">
+        <property name="justify">center</property>
+        <property name="state">readonly</property>
+        <property name="textvariable">string:size_of_train</property>
+        <property name="values">0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9</property>
+        <property name="width">4</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="ipadx">0</property>
+          <property name="ipady">4</property>
+          <property name="padx">190</property>
+          <property name="propagate">True</property>
+          <property name="row">2</property>
+          <property name="sticky">e</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Separator" id="Separator_1">
+        <property name="orient">horizontal</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="ipadx">300</property>
+          <property name="propagate">True</property>
+          <property name="row">0</property>
+          <property name="sticky">s</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Separator" id="Separator_2">
+        <property name="orient">horizontal</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="ipadx">300</property>
+          <property name="propagate">True</property>
+          <property name="row">6</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Label" id="Label_6">
+        <property name="background">#ff8080</property>
+        <property name="font">{Courier} 14 {bold}</property>
+        <property name="padding">10</property>
+        <property name="text" translatable="yes">Result of Classifier:</property>
+        <property name="textvariable">string:result_label</property>
+        <property name="width">52</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="padx">3</property>
+          <property name="pady">3</property>
+          <property name="propagate">True</property>
+          <property name="row">7</property>
+          <property name="sticky">w</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Button" id="Button_2">
+        <property name="command">on_classify_click</property>
+        <property name="default">normal</property>
+        <property name="text" translatable="yes">Classify</property>
+        <property name="textvariable">string:btn_classify</property>
+        <property name="width">18</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="ipadx">0</property>
+          <property name="ipady">7</property>
+          <property name="pady">10</property>
+          <property name="propagate">True</property>
+          <property name="row">3</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Separator" id="Separator_3">
+        <property name="orient">horizontal</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="ipadx">300</property>
+          <property name="propagate">True</property>
+          <property name="row">8</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Label" id="out_classifier">
+        <property name="font">{Courier} 12 {}</property>
+        <property name="justify">center</property>
+        <property name="padding">10</property>
+        <property name="text" translatable="yes">Selectd Classifier:</property>
+        <property name="textvariable">string:label_class_1</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="ipadx">3</property>
+          <property name="ipady">3</property>
+          <property name="propagate">True</property>
+          <property name="row">9</property>
+          <property name="sticky">w</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Label" id="out_front_classifier">
+        <property name="background">#00ff80</property>
+        <property name="font">{Courier} 12 {}</property>
+        <property name="foreground">#000000</property>
+        <property name="textvariable">string:out_front_print</property>
+        <property name="width">23</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="padx">10</property>
+          <property name="propagate">True</property>
+          <property name="row">9</property>
+          <property name="sticky">e</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Label" id="out_front_size">
+        <property name="font">{Courier} 12 {}</property>
+        <property name="padding">10</property>
+        <property name="text" translatable="yes">Size of Training Set:</property>
+        <property name="textvariable">string:label_size_1</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="ipadx">3</property>
+          <property name="ipady">3</property>
+          <property name="propagate">True</property>
+          <property name="row">10</property>
+          <property name="sticky">w</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Label" id="normal">
+        <property name="font">{Courier} 10 {}</property>
+        <property name="padding">5</property>
+        <property name="text" translatable="yes">Normal</property>
+        <property name="textvariable">string:normal_label</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="padx">150</property>
+          <property name="propagate">True</property>
+          <property name="row">10</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Label" id="sarcastic">
+        <property name="font">{Courier} 10 {}</property>
+        <property name="padding">5</property>
+        <property name="text" translatable="yes">Sarcastic</property>
+        <property name="textvariable">string:sarcastic_label</property>
+        <property name="width">0</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="padx">150</property>
+          <property name="propagate">True</property>
+          <property name="row">11</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Label" id="out_nornal_data">
+        <property name="background">#80ff80</property>
+        <property name="font">{Courier} 12 {}</property>
+        <property name="foreground">#000000</property>
+        <property name="textvariable">int:out_normal_data_print</property>
+        <property name="width">23</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="padx">10</property>
+          <property name="propagate">True</property>
+          <property name="row">10</property>
+          <property name="sticky">e</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Label" id="out_sarcastic_data">
+        <property name="background">#00ff80</property>
+        <property name="font">{Courier} 12 {}</property>
+        <property name="foreground">#000000</property>
+        <property name="textvariable">int:out_sarcastic_data_print</property>
+        <property name="width">23</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="padx">10</property>
+          <property name="propagate">True</property>
+          <property name="row">11</property>
+          <property name="sticky">e</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Label" id="accuracy_label">
+        <property name="font">{Courier} 12 {}</property>
+        <property name="justify">center</property>
+        <property name="padding">10</property>
+        <property name="text" translatable="yes">Accuracy : </property>
+        <property name="textvariable">string:out_accuracy_label</property>
+        <property name="width">13</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="padx">60</property>
+          <property name="propagate">True</property>
+          <property name="row">12</property>
+          <property name="sticky">w</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Label" id="out_accuracy_ans">
+        <property name="background">#80ff80</property>
+        <property name="font">{Courier} 12 {bold}</property>
+        <property name="foreground">#000000</property>
+        <property name="textvariable">string:out_accuracy_print</property>
+        <property name="width">23</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="padx">10</property>
+          <property name="propagate">True</property>
+          <property name="row">12</property>
+          <property name="sticky">e</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Separator" id="Separator_4">
+        <property name="orient">horizontal</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="ipadx">300</property>
+          <property name="propagate">True</property>
+          <property name="row">13</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Combobox" id="selected_classifier_item">
+        <property name="justify">center</property>
+        <property name="state">readonly</property>
+        <property name="textvariable">string:selected_classifer</property>
+        <property name="values">Naive_Bayes Support_Vector_Machine(SVM)</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="ipadx">28</property>
+          <property name="ipady">4</property>
+          <property name="padx">40</property>
+          <property name="propagate">True</property>
+          <property name="row">1</property>
+          <property name="sticky">e</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Separator" id="Separator_5">
+        <property name="orient">horizontal</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="ipadx">300</property>
+          <property name="propagate">True</property>
+          <property name="row">4</property>
+          <property name="sticky">n</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Label" id="error">
+        <property name="font">{Courier} 14 {bold}</property>
+        <property name="foreground">#fa2e4d</property>
+        <property name="padding">10</property>
+        <property name="text" translatable="yes">Error</property>
+        <property name="textvariable">string:error</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">5</property>
+          <property name="sticky">w</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Label" id="error_label">
+        <property name="background">#ffff80</property>
+        <property name="font">{Courier} 12 {}</property>
+        <property name="foreground">#000000</property>
+        <property name="textvariable">string:error_label</property>
+        <property name="width">42</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="ipadx">50</property>
+          <property name="ipady">5</property>
+          <property name="propagate">True</property>
+          <property name="row">5</property>
+          <property name="sticky">e</property>
+        </layout>
+      </object>
+    </child>
+  </object>
+</interface>
